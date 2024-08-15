@@ -14,7 +14,7 @@ export default async function Team() {
   return (
     <>
       <h2 className="text-center font-bold text-4xl my-3 underline">Organizers</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-6 gap-8 place-items-center">
         {organizers.map((member) => (
           <NeonGradientCard
             key={member._id}
@@ -51,7 +51,7 @@ export default async function Team() {
         ))}
       </div>
       <h2 className="text-center font-bold text-4xl my-3 underline">Lead</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-6 place-items-center">
         {lead.map((member) => (
           <NeonGradientCard
             key={member._id}
@@ -88,7 +88,7 @@ export default async function Team() {
         ))}
       </div>
       <h2 className="text-center font-bold text-4xl my-3 underline">Team Members</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-6 place-items-center">
         {teamMembers.map((member) => (
           <NeonGradientCard
             key={member._id}

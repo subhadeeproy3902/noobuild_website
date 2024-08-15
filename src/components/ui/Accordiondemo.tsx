@@ -29,13 +29,13 @@ export function AccordionVariant() {
                         <div className='flex items-center'>
                             <ChevronRight className='h-4 w-4 text-white transition-transform duration-200 group-data-[expanded]:rotate-90' />
                             <div className='ml-2 text-white'>
-                                Who can join NOOBUILD?
+                                Who can join NooBuild?
                             </div>
                         </div>
                     </AccordionTrigger>
                     <AccordionContent className='origin-center max-w-xs'>
                         <p className='pl-6 pr-2 text-zinc-500 dark:text-zinc-400 items-center flex justify-center'>
-                            NOOBUILD is open to all Students and Professionals interested in technology, from beginners to experienced enthusiasts, who are eager to learn, share knowledge, and collaborate on projects.
+                            NooBuild is open to all Students and Professionals interested in technology, from beginners to experienced enthusiasts, who are eager to learn, share knowledge, and collaborate on projects.
                         </p>
                     </AccordionContent>
                 </AccordionItem>
@@ -44,13 +44,13 @@ export function AccordionVariant() {
                         <div className='flex items-center'>
                             <ChevronRight className='h-4 w-4 text-white transition-transform duration-200 group-data-[expanded]:rotate-90' />
                             <div className='ml-2 text-white'>
-                                What activities and events does NOOBUILD organize?
+                                What activities and events does NooBuild organize?
                             </div>
                         </div>
                     </AccordionTrigger>
                     <AccordionContent className='origin-center max-w-xs'>
                         <p className='pl-6 pr-2 text-zinc-500 dark:text-zinc-400 flex justify-center items-center'>
-                            NOOBUILD organizes hackathons, workshops, webinars, coding challenges, meetups, and offers collaborative project opportunities, mentorship, and community-led initiatives.
+                            NooBuild organizes hackathons, workshops, webinars, coding challenges, meetups, and offers collaborative project opportunities, mentorship, and community-led initiatives.
                         </p>
                     </AccordionContent>
                 </AccordionItem>
@@ -65,7 +65,7 @@ export function AccordionVariant() {
                     </AccordionTrigger>
                     <AccordionContent className='origin-center max-w-xs'>
                         <p className='pl-6 pr-2 text-zinc-500 dark:text-zinc-400 flex items-center justify-center'>
-                            No, joining NOOBUILD is completely free, making technology accessible to everyone.
+                            No, joining NooBuild is completely free, making technology accessible to everyone.
                         </p>
                     </AccordionContent>
                 </AccordionItem>
@@ -74,13 +74,13 @@ export function AccordionVariant() {
                         <div className='flex items-center'>
                             <ChevronRight className='h-4 w-4 text-white transition-transform duration-200 group-data-[expanded]:rotate-90 dark:text-zinc-50' />
                             <div className='ml-2 text-white'>
-                                What are the benefits of joining NOOBUILD?
+                                What are the benefits of joining NooBuild?
                             </div>
                         </div>
                     </AccordionTrigger>
                     <AccordionContent className='origin-center max-w-xs'>
                         <p className='pl-6 pr-2 text-zinc-500 dark:text-zinc-400 flex items-center justify-center'>
-                            Joining NOOBUILD gives you access to a supportive network, events, learning resources, project opportunities, and connections with industry professionals.
+                            Joining NooBuild gives you access to a supportive network, events, learning resources, project opportunities, and connections with industry professionals.
                         </p>
                     </AccordionContent>
                 </AccordionItem>
