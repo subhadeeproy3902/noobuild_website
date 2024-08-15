@@ -4,6 +4,7 @@ import { urlFor } from "../../../sanity/noobuild/lib/image";
 import { FaLinkedin } from "react-icons/fa";
 import { TeamMember, Organizers, Lead } from "../../../sanity/noobuild/lib/type";
 import { FaXTwitter } from "react-icons/fa6";
+import Image from "next/image";
 
 export default async function Team() {
   const teamMembers: TeamMember[] = await fetchTeamMembers();
@@ -20,11 +21,7 @@ export default async function Team() {
             key={member._id}
             className="max-w-sm items-center justify-center text-center"
           >
-            <img
-              src={urlFor(member.image).width(100).url()}
-              alt={member.name}
-              className="mx-auto mb-4 rounded-full"
-            />
+            <Image src={urlFor(member.image).width(100).url()} alt={member.name} className="mx-auto mb-4 rounded-full w-28 h-auto" width={100} height={100} />
             <span className="pointer-events-none z-10 h-full whitespace-pre-wrap bg-gradient-to-br from-[#ff2975] from-35% to-[#00FFF1] bg-clip-text text-center text-3xl font-bold leading-none tracking-tighter text-transparent dark:drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">
               {member.name}
             </span>
@@ -57,11 +54,7 @@ export default async function Team() {
             key={member._id}
             className="max-w-sm items-center justify-center text-center"
           >
-            <img
-              src={urlFor(member.image).width(100).url()}
-              alt={member.name}
-              className="mx-auto mb-4 rounded-full"
-            />
+            <Image src={urlFor(member.image).width(100).url()} alt={member.name} className="mx-auto mb-4 rounded-full w-28 h-auto" width={100} height={100} />
             <span className="pointer-events-none z-10 h-full whitespace-pre-wrap bg-gradient-to-br from-[#ff2975] from-35% to-[#00FFF1] bg-clip-text text-center text-3xl font-bold leading-none tracking-tighter text-transparent dark:drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">
               {member.name}
             </span>
@@ -94,11 +87,7 @@ export default async function Team() {
             key={member._id}
             className="max-w-sm items-center justify-center text-center"
           >
-            <img
-              src={urlFor(member.image).width(100).url()}
-              alt={member.name}
-              className="mx-auto mb-4 rounded-full"
-            />
+            <Image src={urlFor(member.image).width(100).url()} alt={member.name} className="mx-auto mb-4 rounded-full w-28 h-auto" width={100} height={100} />
             <span className="pointer-events-none z-10 h-full whitespace-pre-wrap bg-gradient-to-br from-[#ff2975] from-35% to-[#00FFF1] bg-clip-text text-center text-3xl font-bold leading-none tracking-tighter text-transparent dark:drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">
               {member.name}
             </span>

@@ -18,7 +18,7 @@ const Footer = () => {
     return (
         <div className='footer flex flex-col justify-around items-center bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px] pt-28 pb-10'>
             <Image src={noobuild} alt="Noobuild logo" width={200} height={200} />
-            <div className='logos flex items-center justify-center gap-6 text-white text-4xl mt-5'>
+            <div className='logos flex items-center justify-center gap-6 text-white text-4xl mt-5' id='social'>
                 <a href="https://www.instagram.com/noobuild.community" target="_blank" rel="noreferrer">
                     <FaInstagram />
                 </a>

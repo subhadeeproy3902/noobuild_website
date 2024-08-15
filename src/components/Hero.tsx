@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { AnimatedGradientTextDemo } from './ui/GradientText';
 import { IconCloudDemo } from './ui/IconCloudDemo';
-import { TextRevealDemo } from './ui/Textdemo';
 import { SparklesTextDemo } from './ui/Sparkletext';
 
 const Hero = () => {
