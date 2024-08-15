@@ -9,6 +9,8 @@ import { fetchEvent } from "../../../sanity/lib/fetchTeamMembers";
 import type { Event } from "../../../sanity/lib/type";
 import TiltCard from "./Tiltcard";
 import { client } from "../../../sanity/lib/client"
+import { format } from 'date-fns';
+import { toZonedTime } from 'date-fns-tz';
 
 export const revalidate = 10; //seconds
 
@@ -27,17 +29,8 @@ export default async function EventsPage() {
 
   // Helper function to format date and time
   const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-
-    const options: Intl.DateTimeFormatOptions = {
-      year: 'numeric',
-      month: 'long',  // Use 'short' for abbreviated month names (e.g., Aug)
-      day: 'numeric',
-      hour: 'numeric',
-      minute: 'numeric',
-    };
-
-    return date.toLocaleDateString(undefined, options);
+    const zonedDate = toZonedTime(dateString, Intl.DateTimeFormat().resolvedOptions().timeZone);
+    return format(zonedDate, 'yyyy-MM-dd HH:mm');
   };
 
   return (
