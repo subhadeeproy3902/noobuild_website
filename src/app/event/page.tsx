@@ -8,7 +8,7 @@ import React from "react";
 import { fetchEvent } from "../../../sanity/lib/fetchTeamMembers";
 import type { Event } from "../../../sanity/lib/type";
 import TiltCard from "./Tiltcard";
-import {client} from "../../../sanity/lib/client"
+import { client } from "../../../sanity/lib/client"
 
 export const revalidate = 10; //seconds
 
@@ -28,8 +28,9 @@ export default async function EventsPage() {
   // Helper function to format date and time
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
+    return `${date.toLocaleDateString()} ${date.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', second: '2-digit' })}`;
   };
+
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 p-6">
