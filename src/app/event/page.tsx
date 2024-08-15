@@ -5,9 +5,11 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs";
 import React from "react";
-import { fetchEvent } from "../../../sanity/noobuild/lib/fetchTeamMembers";
-import type { Event } from "../../../sanity/noobuild/lib/type";
+import { fetchEvent } from "../../../sanity/lib/fetchTeamMembers";
+import type { Event } from "../../../sanity/lib/type";
 import TiltCard from "./Tiltcard";
+import {client} from "../../../sanity/lib/client"
+
 
 export default async function EventsPage() {
   const events: Event[] = await fetchEvent();

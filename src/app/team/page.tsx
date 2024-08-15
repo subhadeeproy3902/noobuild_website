@@ -1,10 +1,11 @@
 import { NeonGradientCard } from "@/components/magicui/neon-gradient-card";
-import { fetchTeamMembers, fetchOrganizers, fetchLead } from "../../../sanity/noobuild/lib/fetchTeamMembers";
-import { urlFor } from "../../../sanity/noobuild/lib/image";
+import { fetchTeamMembers, fetchOrganizers, fetchLead } from "../../../sanity/lib/fetchTeamMembers";
+import { urlFor } from "../../../sanity/lib/image";
 import { FaLinkedin } from "react-icons/fa";
-import { TeamMember, Organizers, Lead } from "../../../sanity/noobuild/lib/type";
+import { TeamMember, Organizers, Lead } from "../../../sanity/lib/type";
 import { FaXTwitter } from "react-icons/fa6";
 import Image from "next/image";
+import {client} from "../../../sanity/lib/client"
 
 export default async function Team() {
   const teamMembers: TeamMember[] = await fetchTeamMembers();

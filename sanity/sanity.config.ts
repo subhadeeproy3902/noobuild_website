@@ -6,6 +6,7 @@ import {schemaTypes} from './schemaTypes'
 export default defineConfig({
   name: 'default',
   title: 'NooBuild',
+  basePath: '/studio',
 
   projectId: '5m7w9c7e',
   dataset: 'production',
