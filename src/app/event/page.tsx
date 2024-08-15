@@ -29,13 +29,13 @@ export default async function EventsPage() {
 
   // Helper function to format date and time
   const formatDate = (dateString: string) => {
-    // Convert the date string (which is in UTC) to the desired time zone
     const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone; // Local time zone of the client
     const zonedDate = toZonedTime(dateString, timeZone);
-
-    // Format the zoned date into 'yyyy-MM-dd HH:mm'
-    return format(zonedDate, 'yyyy-MM-dd HH:mm');
+  
+    // Format the zoned date to show only the date in 'yyyy-MM-dd' format
+    return format(zonedDate, 'yyyy-MM-dd');
   };
+
   return (
     <div className="min-h-screen bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 p-6">
       <Tabs
