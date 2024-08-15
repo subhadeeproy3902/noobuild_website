@@ -10,6 +10,8 @@ import type { Event } from "../../../sanity/lib/type";
 import TiltCard from "./Tiltcard";
 import {client} from "../../../sanity/lib/client"
 
+export const revalidate = 10; //seconds
+
 
 export default async function EventsPage() {
   const events: Event[] = await fetchEvent();

@@ -7,6 +7,8 @@ import { FaXTwitter } from "react-icons/fa6";
 import Image from "next/image";
 import {client} from "../../../sanity/lib/client"
 
+export const revalidate = 10; //seconds
+
 export default async function Team() {
   const teamMembers: TeamMember[] = await fetchTeamMembers();
   const organizers: Organizers[] = await fetchOrganizers();
