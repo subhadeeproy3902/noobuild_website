@@ -28,16 +28,17 @@ export default async function EventsPage() {
   // Helper function to format date and time
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-based, so add 1
-    const day = String(date.getDate()).padStart(2, '0');
-    const hours = String(date.getHours()).padStart(2, '0');
-    const minutes = String(date.getMinutes()).padStart(2, '0');
-    
-    return `${year}-${month}-${day} ${hours}:${minutes}`;
-  };
-  
 
+    const options: Intl.DateTimeFormatOptions = {
+      year: 'numeric',
+      month: 'long',  // Use 'short' for abbreviated month names (e.g., Aug)
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+    };
+
+    return date.toLocaleDateString(undefined, options);
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 p-6">
