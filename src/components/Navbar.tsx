@@ -2,6 +2,7 @@ import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuIt
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
 import noobuild_logo from "@/assets/noobuild_logo.jpg"
+import noobuild_logo_bg from "@/assets/noobuild_logo-removebg-preview.png"
 
 const navigation = [
     { name: 'Home', href: '/', current: true },

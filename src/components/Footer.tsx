@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import noobuild from "@/assets/noobuild_logo.jpg"
+import noobuild_logo_bg from "@/assets/noobuild_logo-removebg-preview.png"
 import { FaInstagram } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
