@@ -29,6 +29,7 @@
     "react-icon-cloud": "^4.1.4",
     "react-icons": "^5.2.1",
     "sanity": "^3.53.0",
+    "sharp": "^0.33.4",
     "styled-components": "^6.1.12",
     "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7"

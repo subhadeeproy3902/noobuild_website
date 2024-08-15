@@ -1,4 +1,6 @@
+"use client";
 import IconCloud from "@/components/magicui/icon-cloud";
+import BlurFade from "@/components/magicui/blur-fade";
 
 const slugs = [
   "typescript",
@@ -36,7 +38,9 @@ const slugs = [
 export function IconCloudDemo() {
   return (
     <div className="relative flex h-full w-full max-w-[32rem] items-center justify-center overflow-hidden rounded-lg px-20 pb-20 pt-8 ">
-      <IconCloud iconSlugs={slugs} />
+      <BlurFade delay={0.15} inView>
+        <IconCloud iconSlugs={slugs} />
+      </BlurFade>
     </div>
   );
 }
