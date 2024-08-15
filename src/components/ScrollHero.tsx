@@ -36,7 +36,7 @@ const SECTION_HEIGHT = 1300;
 const Hero = () => {
   return (
     <div
-      style={{ height: `calc(${SECTION_HEIGHT}px + 80vh)` }}
+      style={{ height: `calc(${SECTION_HEIGHT}px + 100vh)` }}
       className="relative w-full"
     >
       <CenterImage />
