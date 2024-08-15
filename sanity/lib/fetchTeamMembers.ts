@@ -18,7 +18,7 @@ export async function fetchLead(): Promise<Lead[]> {
 }
 
 export async function fetchEvent(): Promise<Event[]> {
-  const query = groq`*[_type == "event"] | order(startTime asc)`;
+  const query =`*[_type == "event"]`;
   const events = await client.fetch(query);
 
   return await events;
