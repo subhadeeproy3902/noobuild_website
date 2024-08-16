@@ -11,8 +11,9 @@ import TiltCard from "./Tiltcard";
 import { client } from "../../../sanity/lib/client"
 import { format } from 'date-fns';
 import { toZonedTime } from 'date-fns-tz';
+import Link from "next/link";
 
-export const revalidate = 10; //seconds
+export const revalidate = 0; //seconds
 
 
 export default async function EventsPage() {
@@ -73,13 +74,13 @@ export default async function EventsPage() {
                     {event.title}
                   </h3>
                   <p className="text-gray-700 mb-4 text-sm">{event.description}</p>
-                  <a
+                  <Link
                     href={event.url}
                     target="_blank"
                     className="inline-block my-4 px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300"
                   >
                     Click Here
-                  </a>
+                  </Link>
                   <p className="text-sm text-gray-500">{formatDate(event.startTime)}</p>
                 </div>
               </TiltCard>
@@ -99,13 +100,13 @@ export default async function EventsPage() {
                     {event.title}
                   </h3>
                   <p className="text-gray-700 mb-4 text-sm">{event.description}</p>
-                  <a
+                  <Link
                     href={event.url}
                     target="_blank"
                     className="inline-block my-4 px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300"
                   >
                     Click Here
-                  </a>
+                  </Link>
                   <p className="text-sm text-gray-500">
                     {formatDate(event.startTime)} - {formatDate(event.endTime)}
                   </p>
@@ -127,13 +128,13 @@ export default async function EventsPage() {
                     {event.title}
                   </h3>
                   <p className="text-gray-700 mb-4 text-sm">{event.description}</p>
-                  <a
+                  <Link
                     href={event.url}
                     target="_blank"
                     className="inline-block my-4 px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300"
                   >
                     Click Here
-                  </a>
+                  </Link>
                   <p className="text-sm text-gray-500">
                     {formatDate(event.startTime)} - {formatDate(event.endTime)}
                   </p>

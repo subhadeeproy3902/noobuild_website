@@ -10,6 +10,7 @@ import { FaDiscord } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
 import { FaWhatsapp } from "react-icons/fa";
 import { SiLinktree } from "react-icons/si";
+import Link from 'next/link';
 const Footer = () => {
     const [year, setYear] = useState(new Date().getFullYear());
     useEffect(() => {
@@ -20,24 +21,24 @@ const Footer = () => {
         <div className='footer flex flex-col justify-around items-center bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px] pt-28 pb-10'>
             <Image src={noobuild} alt="Noobuild logo" width={200} height={200} />
             <div className='logos flex items-center justify-center gap-6 text-white text-4xl mt-5' id='social'>
-                <a href="https://www.instagram.com/noobuild.community" target="_blank" rel="noreferrer">
+                <Link href="https://www.instagram.com/noobuild.community" target="_blank" rel="noreferrer">
                     <FaInstagram />
-                </a>
-                <a href="https://www.linkedin.com/company/noobuild/" target="_blank" rel="noreferrer">
+                </Link>
+                <Link href="https://www.linkedin.com/company/noobuild/" target="_blank" rel="noreferrer">
                     <FaLinkedin />
-                </a>
-                <a href="https://x.com/NooBuild_Tech" target="_blank" rel="noreferrer">
+                </Link>
+                <Link href="https://x.com/NooBuild_Tech" target="_blank" rel="noreferrer">
                     <FaXTwitter />
-                </a>
-                <a href="https://discord.com/invite/QJpRcUcAsx" target="_blank" rel="noreferrer">
+                </Link>
+                <Link href="https://discord.com/invite/QJpRcUcAsx" target="_blank" rel="noreferrer">
                     <FaDiscord />
-                </a>
-                <a href="mailto:noobuild.community@gmail.com" target='_blank'>
+                </Link>
+                <Link href="mailto:noobuild.community@gmail.com" target='_blank'>
                     <IoMdMail />
-                </a>
-                <a href="https://chat.whatsapp.com/IjlTMhmIqWmIddCbN95Rai" target="_blank" rel="noreferrer">
+                </Link>
+                <Link href="https://chat.whatsapp.com/IjlTMhmIqWmIddCbN95Rai" target="_blank" rel="noreferrer">
                     <FaWhatsapp />
-                </a>
+                </Link>
                 {/* <a href="https://linktr.ee/noobuild" target='_blank'>
                     <SiLinktree />
                 </a> */}

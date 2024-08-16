@@ -6,8 +6,9 @@ import { TeamMember, Organizers, Lead } from "../../../sanity/lib/type";
 import { FaXTwitter } from "react-icons/fa6";
 import Image from "next/image";
 import {client} from "../../../sanity/lib/client"
+import Link from "next/link";
 
-export const revalidate = 10; //seconds
+export const revalidate = 0; //seconds
 
 export default async function Team() {
   const teamMembers: TeamMember[] = await fetchTeamMembers();
@@ -30,22 +31,22 @@ export default async function Team() {
             </span>
             <p className="mt-2 text-lg font-medium text-gray-600">{member.post}</p>
             <div className="mt-4 flex justify-center space-x-4">
-              <a
+              <Link
                 href={member.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-gray-900"
               >
                 <FaLinkedin className="w-6 h-6" />
-              </a>
-              <a
+              </Link>
+              <Link
                 href={member.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-gray-900"
               >
                 <FaXTwitter className="w-6 h-6" />
-              </a>
+              </Link>
             </div>
           </NeonGradientCard>
         ))}
@@ -63,22 +64,22 @@ export default async function Team() {
             </span>
             <p className="mt-2 text-lg font-medium text-gray-600">{member.post}</p>
             <div className="mt-4 flex justify-center space-x-4">
-              <a
+              <Link
                 href={member.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-gray-900"
               >
                 <FaLinkedin className="w-6 h-6" />
-              </a>
-              <a
+              </Link>
+              <Link
                 href={member.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-gray-900"
               >
                 <FaXTwitter className="w-6 h-6" />
-              </a>
+              </Link>
             </div>
           </NeonGradientCard>
         ))}
@@ -96,22 +97,22 @@ export default async function Team() {
             </span>
             <p className="mt-2 text-lg font-medium text-gray-600">{member.post}</p>
             <div className="mt-4 flex justify-center space-x-4">
-              <a
+              <Link
                 href={member.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-gray-900"
               >
                 <FaLinkedin className="w-6 h-6" />
-              </a>
-              <a
+              </Link>
+              <Link
                 href={member.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-gray-900"
               >
                 <FaXTwitter className="w-6 h-6" />
-              </a>
+              </Link>
             </div>
           </NeonGradientCard>
         ))}
