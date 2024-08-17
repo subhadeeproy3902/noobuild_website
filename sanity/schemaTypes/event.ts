@@ -19,6 +19,14 @@ export default {
         title: 'Location',
       },
       {
+        name: 'image',
+        title: 'Image',
+        type: 'image',
+        options: {
+          hotspot: true,
+        },
+      },
+      {
         name: 'url',
         type: 'url',
         title: 'URL',
@@ -32,6 +40,11 @@ export default {
         name: 'endTime',
         type: 'datetime',
         title: 'End Time',
+      },
+      {
+        name: 'time',
+        type: 'string',
+        title: 'Time',
       },
     ],
   };

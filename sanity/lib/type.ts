@@ -30,9 +30,11 @@ export type Event = {
     title: string;
     description: string;
     location: string;
+    image: any;
     url: string;
     startTime: string;
     endTime: string;
+    time: string;
 };
 
 
