@@ -5,10 +5,11 @@ import { FaLinkedin } from "react-icons/fa";
 import { TeamMember, Organizers, Lead } from "../../../sanity/lib/type";
 import { FaXTwitter } from "react-icons/fa6";
 import Image from "next/image";
-import {client} from "../../../sanity/lib/client"
+import { client } from "../../../sanity/lib/client"
 import Link from "next/link";
 
-export const revalidate = 0; //seconds
+export const revalidate = 5; //seconds
+
 
 export default async function Team() {
   const teamMembers: TeamMember[] = await fetchTeamMembers();

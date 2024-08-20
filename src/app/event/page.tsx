@@ -15,7 +15,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { urlFor } from "../../../sanity/lib/image";
 
-export const revalidate = 0; //seconds
+export const revalidate = 5; //seconds
 
 
 export default async function EventsPage() {
@@ -100,16 +100,16 @@ export default async function EventsPage() {
             liveEvents.map((event) => (
               <TiltCard key={event._id}>
                 <div className="p-6 gap-2.5">
-                  <Image src={urlFor(event.image).width(100).url()} alt={event.title} className="mx-auto mb-4 rounded-full w-28 h-auto" width={100} height={100} />
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  <Image src={urlFor(event.image).width(100).url()} alt={event.title} className="mx-auto my-2 rounded-full w-20 h-auto" width={100} height={100} />
+                  <h3 className="text-2xl font-bold text-gray-900">
                     {event.title}
                   </h3>
-                  <p className="text-gray-700 mb-4 text-sm">{event.description}</p>
+                  <p className="text-gray-700 my-2 text-sm">{event.description}</p>
                   <p className="text-gray-700 text-sm">{event.location}</p>
                   <Link
                     href={event.url}
                     target="_blank"
-                    className="inline-block my-4 px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300"
+                    className="inline-block my-2 px-3 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300"
                   >
                     Click Here
                   </Link>
@@ -130,21 +130,21 @@ export default async function EventsPage() {
             pastEvents.map((event) => (
               <TiltCard key={event._id}>
                 <div className="p-6 gap-2.5">
-                  <Image src={urlFor(event.image).width(100).url()} alt={event.title} className="mx-auto mb-4 rounded-full w-28 h-auto" width={100} height={100} />
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  <Image src={urlFor(event.image).width(100).url()} alt={event.title} className="mx-auto my-2 rounded-full w-20 h-auto" width={100} height={100} />
+                  <h3 className="text-2xl font-bold text-gray-900">
                     {event.title}
                   </h3>
-                  <p className="text-gray-700 mb-4 text-sm">{event.description}</p>
+                  <p className="text-gray-700 my-2 text-sm">{event.description}</p>
                   <p className="text-gray-700 text-sm">{event.location}</p>
                   <Link
                     href={event.url}
                     target="_blank"
-                    className="inline-block my-4 px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300"
+                    className="inline-block my-2 px-3 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300"
                   >
                     Click Here
                   </Link>
                   <p className="text-sm text-gray-500">
-                    {formatDate(event.startTime)} - {formatDate(event.endTime)}
+                    {formatDate(event.startTime)}
                   </p>
                 </div>
               </TiltCard>
