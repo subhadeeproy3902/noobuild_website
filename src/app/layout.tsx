@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
+import Header from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Analytics } from "@vercel/analytics/react"
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import ClientThemeProvider from "./theme-provider";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Bricolage_Grotesque({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "NooBuild Community - Innovate, Collaborate, Elevate",
-  description: "At NooBuild, we unite tech enthusiasts to innovate, collaborate, and grow. Join us to shape the future of tech!",
+  description:
+    "At NooBuild, we unite tech enthusiasts to innovate, collaborate, and grow. Join us to shape the future of tech!",
 };
 
 export default function RootLayout({
@@ -19,13 +21,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body className={inter.className}>
-        <Navbar />
-        {children}
-        <Analytics />
-        <SpeedInsights />
-        <Footer />
+          <Header />
+          {children}
+          <Analytics />
+          <SpeedInsights />
+          <Footer />
       </body>
     </html>
   );

@@ -1,87 +1,194 @@
-"use client"
-import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import Image from 'next/image'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import noobuild_logo from "@/assets/noobuild_logo.jpg"
+"use client";
 
-const navigation = [
-    { name: 'Home', href: '/' },
-    { name: 'Team', href: '/team' },
-    { name: 'Events', href: '/event' },
-    { name: 'Socials', href: '#social' },
-]
+import clsx from "clsx";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef } from "react";
+import Avatar from "./Avatar";
+import { Container } from "./Container";
+import DesktopNavigation from "./DesktopNavigation";
+import MobileNavigation from "./MobileNavigation";
+import ThemeSelector from "./ThemeSelector";
 
-function classNames(...classes: any) {
-    return classes.filter(Boolean).join(' ')
+const navigations = [
+  { href: "/", label: "Home" },
+  { href: "/#publications", label: "Publications" },
+  { href: "/projects", label: "Projects" },
+  { href: "/courses", label: "Courses" },
+  { href: "/snippets", label: "Snippets" },
+  { href: "/resources", label: "Resources" },
+  { href: "/articles", label: "Posts" },
+];
+
+function clamp(value: number, a: number, b: number): number {
+  let min = Math.min(a, b);
+  let max = Math.max(a, b);
+  return Math.min(Math.max(value, min), max);
 }
 
-export default function Navbar() {
-    const pathname = usePathname();
+function AvatarContainer({
+  className,
+  ...props
+}: {
+  className?: string;
+  [key: string]: any;
+}): JSX.Element {
+  return (
+    <div
+      className={clsx(
+        className,
+        "rounded-full bg-transparent"
+      )}
+      {...props}
+    />
+  );
+}
 
-    return (
-        <Disclosure as="nav" className="bg-gray-700">
-            <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-                <div className="relative flex h-24 items-center justify-between">
-                    <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                        {/* Mobile menu button*/}
-                        <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-                            <span className="absolute -inset-0.5" />
-                            <span className="sr-only">Open main menu</span>
-                            <Bars3Icon aria-hidden="true" className="block h-6 w-6 group-data-[open]:hidden" />
-                            <XMarkIcon aria-hidden="true" className="hidden h-6 w-6 group-data-[open]:block" />
-                        </DisclosureButton>
-                    </div>
-                    <div className="flex items-center justify-center sm:items-stretch sm:justify-start w-full">
-                        <div className="flex flex-shrink-0 items-center justify-center">
-                            <Image src={noobuild_logo} alt='noobuild_logo' className='h-20 w-auto rounded-lg' />
-                        </div>
-                        <div className="hidden sm:ml-6 sm:block w-full">
-                            <div className="flex space-x-4 justify-center items-center h-full">
-                                {navigation.map((item) => {
-                                    const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
-                                    return (
-                                        <Link
-                                            key={item.name}
-                                            href={item.href}
-                                            aria-current={isActive ? 'page' : undefined}
-                                            className={classNames(
-                                                isActive ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                                                'rounded-md px-3 py-2 text-sm font-medium',
-                                            )}
-                                        >
-                                            {item.name}
-                                        </Link>
-                                    )
-                                })}
-                            </div>
-                        </div>
-                    </div>
+export default function Header(): JSX.Element {
+  let isHomePage = usePathname() === "/";
+
+  let headerRef = useRef();
+  let avatarRef = useRef();
+  let isInitial = useRef(true);
+
+  useEffect(() => {
+    let downDelay = (avatarRef.current as any)?.offsetTop ?? 0;
+    let upDelay = 64;
+
+    function setProperty({ property, value }: { [key: string]: any }): void {
+      document.documentElement.style.setProperty(property, value);
+    }
+
+    function updateHeaderStyles(): void {
+      let { top, height } = (headerRef.current as any).getBoundingClientRect();
+      let scrollY = clamp(
+        window.scrollY,
+        0,
+        document.body.scrollHeight - window.innerHeight
+      );
+
+      if (isInitial.current) {
+        setProperty({ property: "--header-position", value: "sticky" });
+      }
+
+      setProperty({ property: "--content-offset", value: `${downDelay}px` });
+
+      if (isInitial.current || scrollY < downDelay) {
+        setProperty({
+          property: "--header-height",
+          value: `${downDelay + height}px`,
+        });
+        setProperty({ property: "--header-mb", value: `${-downDelay}px` });
+      } else if (top + height < -upDelay) {
+        let offset = Math.max(height, scrollY - upDelay);
+        setProperty({ property: "--header-height", value: `${offset}px` });
+        setProperty({ property: "--header-mb", value: `${height - offset}px` });
+      } else if (top === 0) {
+        setProperty({
+          property: "--header-height",
+          value: `${scrollY + height}px`,
+        });
+        setProperty({ property: "--header-mb", value: `${-scrollY}px` });
+      }
+    }
+
+    function updateAvatarStyles(): void {
+      if (!isHomePage) {
+        return;
+      }
+
+      let fromScale = 1;
+      let toScale = 36 / 64;
+      let fromX = 0;
+      let toX = 2 / 16;
+
+      let scrollY = downDelay - window.scrollY;
+
+      let scale = (scrollY * (fromScale - toScale)) / downDelay + toScale;
+      scale = clamp(scale, fromScale, toScale);
+
+      let x = (scrollY * (fromX - toX)) / downDelay + toX;
+      x = clamp(x, fromX, toX);
+
+      setProperty({
+        property: "--avatar-image-transform",
+        value: `translate3d(${x}rem, 0, 0) scale(${scale})`,
+      });
+
+      let borderScale = 1 / (toScale / scale);
+      let borderX = (-toX + x) * borderScale;
+      let borderTransform = `translate3d(${borderX}rem, 0, 0) scale(${borderScale})`;
+
+      setProperty({
+        property: "--avatar-border-transform",
+        value: borderTransform,
+      });
+      setProperty({
+        property: "--avatar-border-opacity",
+        value: scale === toScale ? 1 : 0,
+      });
+    }
+
+    function updateStyles(): void {
+      updateHeaderStyles();
+      updateAvatarStyles();
+      isInitial.current = false;
+    }
+
+    updateStyles();
+    window.addEventListener("scroll", updateStyles, { passive: true });
+    window.addEventListener("resize", updateStyles);
+
+    return () => {
+      (window as any).removeEventListener("scroll", updateStyles, {
+        passive: true,
+      });
+      window.removeEventListener("resize", updateStyles);
+    };
+  }, [isHomePage]);
+
+  return (
+    <>
+      <header
+        className="pointer-events-none z-50 flex flex-col absolute w-full"
+        style={{
+          height: "var(--header-height)",
+          marginBottom: "var(--header-mb)",
+        }}
+      >
+        <div
+          ref={headerRef as any}
+          className="top-0 z-10 pt-6"
+          style={{
+            position: "var(--header-position)" as any,
+          }}
+        >
+          <Container>
+            <div className="relative flex gap-4">
+              <div className="flex flex-1">
+                <AvatarContainer>
+                  <Avatar />
+                </AvatarContainer>
+              </div>
+              <div className="flex flex-1 justify-end md:justify-center">
+                <MobileNavigation
+                  links={navigations}
+                  className="pointer-events-auto md:hidden"
+                />
+                <DesktopNavigation
+                  links={navigations}
+                  className="pointer-events-auto hidden md:block"
+                />
+              </div>
+              <div className="flex justify-end md:flex-1">
+                <div className="pointer-events-auto">
+                  <ThemeSelector />
                 </div>
+              </div>
             </div>
-
-            <DisclosurePanel className="sm:hidden">
-                <div className="space-y-1 px-2 pb-3 pt-2">
-                    {navigation.map((item) => {
-                        const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
-                        return (
-                            <DisclosureButton
-                                key={item.name}
-                                as="a"
-                                href={item.href}
-                                aria-current={isActive ? 'page' : undefined}
-                                className={classNames(
-                                    isActive ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                                    'block rounded-md px-3 py-2 text-base font-medium',
-                                )}
-                            >
-                                {item.name}
-                            </DisclosureButton>
-                        )
-                    })}
-                </div>
-            </DisclosurePanel>
-        </Disclosure>
-    )
+          </Container>
+        </div>
+      </header>
+      {isHomePage && <div style={{ height: "var(--content-offset)" }} />}
+    </>
+  );
 }
