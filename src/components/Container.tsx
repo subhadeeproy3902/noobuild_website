@@ -38,5 +38,7 @@ export const Container = forwardRef(function Container(
   );
 });
 
+// @ts-ignore
 (Container as any).Outer = OuterContainer;
+// @ts-ignore
 (Container as any).Inner = InnerContainer;
